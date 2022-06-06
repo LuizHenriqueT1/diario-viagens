@@ -1,0 +1,128 @@
+body {
+    background-color: #f7f7fb;
+    min-height: 100%;
+    padding-top: 80px;
+    font-family: 'Nunito';
+}
+
+h2 {
+    font-family: 'Nunito';
+}
+
+h3 {
+    font-family: 'Nunito';
+    font-size: 18px;
+    color: #fff;
+}
+
+.mat-form-field {
+    font-family: 'Nunito';
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.dv-cadastro {
+    font-size: 14px;
+    padding: 0px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, .1);
+    width: 800px;
+    position: relative;
+}
+
+.dv-cadastro-bg-left {
+    background-color: #091C2B;
+}
+
+.dv-cadastro-bg-right {
+    background-color: #fff;
+}
+
+/* Buttons */
+
+.mat-flat-button {
+    font-family: 'Nunito';
+    font-size: 14px;
+    font-weight: 200;
+    width: 100%;
+    display: inline-block;
+    border: 0px;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+}
+
+.dv-btn-providers {
+    font-family: 'Nunito';
+    font-size: 14px;
+    font-weight: 200;
+    width: calc(50% - 70px);
+    display: inline-block;
+    border: 0px;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .05);
+}
+
+/* White Circle */
+
+.dv-bi-cadastro {
+    background: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    line-height: 24px;
+}
+
+/* Button Github */
+
+.btn-github {
+    color: #fff;
+    background-color: #333333;
+}
+
+.btn-github path {
+    color: #333333;
+}
+
+/* Button Google */
+
+.btn-google {
+    color: #fff;
+    background-color: #DB4437;
+}
+
+.btn-google path {
+    color: #DB4437;
+}
+
+/* Links */
+
+.dv-cadastro-links {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.dv-cadastro-links a {
+    text-decoration: none;
+}
+
+/* Captcha */
+.dv-recaptcha {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Error confirma_senha */
+.dv-error {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

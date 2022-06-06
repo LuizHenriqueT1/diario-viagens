@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -22,7 +22,8 @@ export class CadastroComponent implements OnInit {
       nick: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(8)]],
-      confirma_senha: [''],
+      recaptcha: ['', Validators.required],
+      confirma_senha: ['']
     },
     { validators: [this.matchPasswords] }
   );
@@ -36,7 +37,8 @@ export class CadastroComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   onSubmit() {
@@ -58,9 +60,9 @@ export class CadastroComponent implements OnInit {
       .loginGoogle()
       .pipe(
         this.toast.observe({
-          success: 'Login efetuado',
+          success: 'Cadastro efetuado',
           error: 'Operação cancelada',
-          loading: 'Fazendo login...',
+          loading: 'Fazendo cadastro...',
         })
       )
       .subscribe();
@@ -71,12 +73,49 @@ export class CadastroComponent implements OnInit {
       .loginGithub()
       .pipe(
         this.toast.observe({
-          success: 'Login efetuado',
+          success: 'Cadastro efetuado',
           error: 'Operação cancelada',
-          loading: 'Fazendo login...',
+          loading: 'Fazendo cadastro...',
         })
       )
       .subscribe();
+  }
+
+  captchaIsLoaded = false;
+  captchaSuccess = false;
+  captchaIsExpired = false;
+  captchaResponse?: string;
+
+  theme: 'light' | 'dark' = 'light';
+  size: 'compact' | 'normal' = 'normal';
+  lang = 'pt';
+  type: 'image' | 'audio' = 'image';
+  useGlobalDomain: boolean = false;
+
+  handleReset(): void {
+    this.captchaSuccess = false;
+    this.captchaResponse = undefined;
+    this.captchaIsExpired = false;
+    this.cdr.detectChanges();
+  }
+
+  handleSuccess(captchaResponse: string): void {
+    this.captchaSuccess = true;
+    this.captchaResponse = captchaResponse;
+    this.captchaIsExpired = false;
+    this.cdr.detectChanges();
+  }
+
+  handleLoad(): void {
+    this.captchaIsLoaded = true;
+    this.captchaIsExpired = false;
+    this.cdr.detectChanges();
+  }
+
+  handleExpire(): void {
+    this.captchaSuccess = false;
+    this.captchaIsExpired = true;
+    this.cdr.detectChanges();
   }
 
   ngOnInit(): void {}

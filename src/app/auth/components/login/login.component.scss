@@ -76,7 +76,6 @@ h3 {
     height: 24px;
     border-radius: 100%;
     line-height: 24px;
-    
 }
 
 /* Button Github */
@@ -112,3 +111,11 @@ h3 {
     text-decoration: none;
 }
 
+/* Captcha */
+.dv-recaptcha {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

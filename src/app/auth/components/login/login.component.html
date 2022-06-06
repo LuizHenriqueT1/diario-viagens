@@ -50,21 +50,13 @@
                             </span>
                         </mat-form-field>
 
-                       <div>
-                        <ngx-recaptcha2 #captchaElem
-                        siteKey = "6Lf1U0IgAAAAAG2PYbWLpFhat4CAKK5-QqFPuQi4"
-                        (reset)="handleReset()"
-                        (expire)="handleExpire()"
-                        (load)="handleLoad()"
-                        (success)="handleSuccess($event)"
-                        [useGlobalDomain]="false"
-                        [size]="size"
-                        [hl]="lang"
-                        [theme]="theme"
-                        [type]="type"
-                        formControlName="recaptcha">
-                        </ngx-recaptcha2>
-                       </div>
+                        <div class="dv-recaptcha">
+                            <ngx-recaptcha2 #captchaElem siteKey="6Lf1U0IgAAAAAG2PYbWLpFhat4CAKK5-QqFPuQi4"
+                                (reset)="handleReset()" (expire)="handleExpire()" (load)="handleLoad()"
+                                (success)="handleSuccess($event)" [useGlobalDomain]="false" [size]="size" [hl]="lang"
+                                [theme]="theme" [type]="type" formControlName="recaptcha">
+                            </ngx-recaptcha2>
+                        </div>
 
                         <button mat-flat-button color="primary" [disabled]="loginForm.invalid">Login</button>
                         <div class="container dv-login-links">

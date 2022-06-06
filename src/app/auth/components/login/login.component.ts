@@ -11,8 +11,6 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   hide = true;
 
-
-
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     senha: ['', [Validators.required, Validators.minLength(8)]],
@@ -102,7 +100,6 @@ export class LoginComponent implements OnInit {
     this.captchaIsExpired = true;
     this.cdr.detectChanges();
   }
-
 
   ngOnInit(): void {}
 }
