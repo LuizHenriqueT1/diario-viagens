@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -11,15 +11,19 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   hide = true;
 
+
+
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     senha: ['', [Validators.required, Validators.minLength(8)]],
+    recaptcha: ['', Validators.required]
   });
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   onSubmit() {
@@ -61,6 +65,44 @@ export class LoginComponent implements OnInit {
       )
       .subscribe();
   }
+
+  captchaIsLoaded = false;
+  captchaSuccess = false;
+  captchaIsExpired = false;
+  captchaResponse?: string;
+
+  theme: 'light' | 'dark' = 'light';
+  size: 'compact' | 'normal' = 'normal';
+  lang = 'pt';
+  type: 'image' | 'audio' = 'image';
+  useGlobalDomain: boolean = false;
+
+  handleReset(): void {
+    this.captchaSuccess = false;
+    this.captchaResponse = undefined;
+    this.captchaIsExpired = false;
+    this.cdr.detectChanges();
+  }
+
+  handleSuccess(captchaResponse: string): void {
+    this.captchaSuccess = true;
+    this.captchaResponse = captchaResponse;
+    this.captchaIsExpired = false;
+    this.cdr.detectChanges();
+  }
+
+  handleLoad(): void {
+    this.captchaIsLoaded = true;
+    this.captchaIsExpired = false;
+    this.cdr.detectChanges();
+  }
+
+  handleExpire(): void {
+    this.captchaSuccess = false;
+    this.captchaIsExpired = true;
+    this.cdr.detectChanges();
+  }
+
 
   ngOnInit(): void {}
 }
