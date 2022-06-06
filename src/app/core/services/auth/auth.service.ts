@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  GithubAuthProvider,
   sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
@@ -125,6 +126,25 @@ export class AuthService {
           email: user.email,
           nome: user.displayName, // 'displayName' contém o nome do usuário do google
           nick: 'Um usuário do Google',
+        });
+
+        this.router.navigate(['/']);
+      })
+    );
+  }
+
+  loginGithub() {
+    return from(signInWithPopup(this.auth, new GithubAuthProvider())).pipe(
+      tap((creds) => {
+        const user = creds.user;
+        const userDoc = doc(this.usuarios, user.uid);
+        // updateDoc faz uma atualização parcial = atualiza apenas o que está diferente no doc do firebase
+        // updateDoc: só funciona se o doc já existe
+        setDoc(userDoc, {
+          uid: user.uid,
+          email: user.email,
+          nome: user.displayName, // 'displayName' contém o nome do usuário do google
+          nick: 'Um usuário do Github',
         });
 
         this.router.navigate(['/']);
