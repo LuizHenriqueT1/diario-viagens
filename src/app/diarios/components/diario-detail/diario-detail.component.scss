@@ -1,0 +1,19 @@
+.diariosList-card {
+    position: absolute;
+    max-width: 40.3em;
+    width: 100%;
+    max-height: 850px;
+    height: 100%;
+    margin-top: 10.25em;
+    margin-bottom: 5.25em;
+  }
+  
+  .img-card {
+    object-fit: cover;
+    height: 25em;
+  }
+
+  .divContainer {
+    display: flexbox;
+    justify-items: center;
+  }
