@@ -47,9 +47,9 @@ export class CadastroComponent implements OnInit {
       .signupEmail(email, senha, nome, nick)
       .pipe(
         this.toast.observe({
-          success: 'Usuário criado com sucesso',
-          error: 'Um erro ocorreu',
-          loading: 'Criando usuário...',
+          success: 'Cadastro efetuado',
+          error: 'Operação cancelada',
+          loading: 'Fazendo cadastro...',
         })
       )
       .subscribe();

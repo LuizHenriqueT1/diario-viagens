@@ -84,6 +84,7 @@ export class AuthService {
     );
   }
 
+
   loginEmail(email: string, password: string) {
     // Realiza o login com base no email/senha
     // O return é necessário para o componente de login
