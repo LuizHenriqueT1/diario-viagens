@@ -1,7 +1,9 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HotToastService } from '@ngneat/hot-toast';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Diario } from 'src/app/core/models/diario';
 import { DiariosService } from 'src/app/core/services/diarios/diarios.service';
 import { DiarioAddComponent } from '../diario-add/diario-add.component';
@@ -15,11 +17,17 @@ import { DiarioEditComponent } from '../diario-edit/diario-edit.component';
 export class DiarioListComponent implements OnInit {
   allDiarios$?: Observable<Diario[]>;
   meusDiarios$?: Observable<Diario[]>;
+  cardsDiarios$?: Observable<Diario[]>;
+  backgroundColor: ThemePalette = 'warn' ;
+  
+
+
 
   constructor(
     private dialog: MatDialog,
     private diariosService: DiariosService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private breakponitObserver: BreakpointObserver
   ) {} // Abrir dialogs baseado em componentes existentes
 
   onClickAdd() {
@@ -82,5 +90,25 @@ export class DiarioListComponent implements OnInit {
   ngOnInit(): void {
     this.allDiarios$ = this.diariosService.getTodosDiarios();
     this.meusDiarios$ = this.diariosService.getDiariosUsuario();
+
+    this.breakponitObserver.observe(Breakpoints.Handset).pipe(
+      map(({ matches }) => {
+        if (matches) {
+          return [
+            { username :  '', cols: 1, rows: 1,  },
+            // console.log(matches)
+          ]
+
+        }
+  
+        return [
+          { title: '' , cols: 1, rows: 1, }
+        ]
+      })
+    ).subscribe();
   }
+  activateHandsetLayout() {
+    throw new Error('Method not implemented.');
+  }
+
 }
