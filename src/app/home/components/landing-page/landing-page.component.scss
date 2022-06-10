@@ -83,6 +83,15 @@ h2{
     border-radius: 50%;
 }
 
+.conteiner2-card img:hover{
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 .conteinerText{
     margin-bottom: 80px;
     height: 40px;
@@ -145,13 +154,16 @@ justify-content: center;
     margin-top: 13px;
     
     
+    
 }
 .rotas a {
         color: rgb(255, 255, 255);
+        text-decoration: none;
 }      
        
 .rotas  a:hover {
         color: rgb(223, 186, 21);
+        text-decoration: none;
 
        }
 
