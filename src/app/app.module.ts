@@ -15,6 +15,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { DiariosModule } from './diarios/diarios.module';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
     CoreModule,
+    HomeModule,
     AuthModule, // As rotas em auth agora fazem parte do app
     DiariosModule,
     HotToastModule.forRoot({
