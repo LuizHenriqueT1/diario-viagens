@@ -18,7 +18,7 @@ export class DiarioListComponent implements OnInit {
   allDiarios$?: Observable<Diario[]>;
   meusDiarios$?: Observable<Diario[]>;
   cardsDiarios$?: Observable<Diario[]>;
-  backgroundColor: ThemePalette = 'warn' ;
+
   
 
 
