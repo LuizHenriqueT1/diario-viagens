@@ -19,7 +19,8 @@ button {
 .box-chat {
     width: 550px;
     margin: auto;
-    box-shadow: 15px rgba(0, 0, 0, .05);
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.11);
+    border-radius: 15px;
 
     .header {
         display: flex;
