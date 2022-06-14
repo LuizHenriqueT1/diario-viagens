@@ -4,7 +4,6 @@ import {
   collection,
   collectionData,
   Firestore,
-  limit,
   orderBy,
   query
 } from '@angular/fire/firestore';
