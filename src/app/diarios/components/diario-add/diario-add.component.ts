@@ -9,11 +9,15 @@ import { Diario } from 'src/app/core/models/diario';
 })
 export class DiarioAddComponent implements OnInit {
   diario: Diario = {} as Diario;
-  imagem?: File;
+  imagem!: File;
+  hide?: boolean;
 
   setImage(ev: any) {
     // target é o input file
-    this.imagem = ev.target.files[0];
+    if(this.imagem = ev.target.files[0]) {
+      return this.hide = true;
+    } return '';   
+
   }
 
   constructor(private ref: MatDialogRef<DiarioAddComponent>) {}
