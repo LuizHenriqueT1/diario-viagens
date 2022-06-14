@@ -1,0 +1,17 @@
+<div #chatScroll class="box-scroll" *ngIf="allMessages$ | async as msgs">
+    <div #msgsScroll class="message" *ngFor="let message of msgs">
+        <div class="chat">
+            <div class="msg msg-left" [ngClass]="{ 'msg-right': userId(message) }">
+                <span class="usuarioName">
+                    <strong>{{ message.usuarioName }}</strong>
+                </span>
+                <div class="bolha bolha-light" [ngClass]="{ 'bolha-dark': userId(message) }">
+                    {{ message.content }}
+                </div>
+                <span class="createdAt">
+                    {{ message.createdAt | date }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

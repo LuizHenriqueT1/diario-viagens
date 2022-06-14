@@ -1,0 +1,84 @@
+$light-primary: #c7cefa;
+$primary: #3f51b5;
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+html,
+body,
+input,
+button {
+    font-family: 'Nunito';
+}
+
+.box-chat {
+    width: 550px;
+    margin: auto;
+    box-shadow: 15px rgba(0, 0, 0, .05);
+
+    .header {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 15px 15px 0 0;
+        padding: 15px;
+
+        .name {
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    .box-type {
+        height: 65px;
+        background-color: #fff;
+        border-radius: 0 0 15px 15px;
+
+        .box-input {
+            padding-top: 20px;
+            overflow: hidden;
+            border-radius: 0 0 0 15px;
+
+            input {
+                color: #999;
+                outline: none;
+                border: none;
+                padding-left: 20px;
+                font-size: 13px;
+                height: 100%;
+                width: 200px;
+            }
+        }
+
+        .button-enviar {
+            border: 0;
+            outline: none;
+            color: $light-primary;
+            background-color: #fff;
+            margin-left: auto;
+            padding-right: 30px;
+            border-radius: 0 0 15px 0;
+        }
+
+        .button-enviar:disabled:hover {
+            color: $light-primary;
+        }
+
+        .button-enviar:hover {
+            color: $primary;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+    }
+}
