@@ -16,6 +16,7 @@ import { MaterialModule } from '../shared/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { NgChartsModule } from 'ng2-charts';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
