@@ -1,0 +1,78 @@
+$light-primary: #c7cefa;
+$primary: #3f51b5;
+
+.chat {
+    min-height: 100px;
+    background-color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+
+    .msg {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Nunito';
+    }
+
+    .msg-left {
+        align-items: flex-start;
+
+        .bolha {
+            border-radius: 0 5px 5px 5px;
+        }
+    }
+
+    .msg-right {
+        align-items: flex-end;
+
+        .bolha {
+            border-radius: 5px 0 5px 5px;
+        }
+    }
+
+    .bolha {
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 5px;
+        padding: 10px;
+    }
+
+    .bolha-light {
+        background-color: $light-primary;
+    }
+
+    .bolha-dark {
+        color: #fff;
+        background-color: $primary;
+    }
+}
+
+.createdAt {
+    margin-top: 5px;
+    font-size: 11px;
+    color: #999;
+}
+
+.usuarioName {
+    font-size: 14px;
+    color: #212121;
+}
+
+.box-scroll {
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
+.box-scroll::-webkit-scrollbar {
+    width: 17px;
+}
+
+.box-scroll::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.box-scroll::-webkit-scrollbar-thumb {
+    background-color: #f7f7fb;
+    border-radius: 15px;
+    border: 5px solid #fff;
+}
