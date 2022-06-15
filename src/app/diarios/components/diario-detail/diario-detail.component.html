@@ -2,13 +2,14 @@
  <mat-grid-tile *ngIf="diario$ | async as diario; else loading">
     <mat-card class="diariosList-card">
       <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ diario.usuarioName }}</mat-card-title>
         <mat-card-subtitle>{{ diario.usuarioNick }}</mat-card-subtitle>
       </mat-card-header>
       <img class="img-card" mat-card-image [src]="diario.imagem" alt="Photo of a Shiba Inu" />
       <mat-card-content>
         <h2>{{ diario.titulo }}</h2>
-        <small>{{ diario.data | date }} | {{ diario.local }}</small>
+        <small style="color: #999;">{{ diario.data | date }} | {{ diario.local }}</small>
         <p>{{ diario.corpo }}</p>
       </mat-card-content>
     </mat-card>
