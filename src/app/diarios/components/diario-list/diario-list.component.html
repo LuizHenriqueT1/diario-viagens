@@ -32,7 +32,7 @@
 
   <mat-tab label="Meus diários">
     <div *ngIf="meusDiarios$ | async as diarios; else loading">
-      <mat-grid-list  cols="1" rowHeight="930px">
+      <mat-grid-list  cols="1" rowHeight="1000px" >
         <mat-grid-tile *ngFor="let diario of diarios" class="example-card">
           <mat-card class="diariosList-card">
             <mat-card-header>
